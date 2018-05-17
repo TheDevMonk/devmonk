@@ -1,0 +1,102 @@
+.work-popup {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-black, .8);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+
+
+    &__content {
+        @include absCenter;
+        position: relative;
+        width: 95%;
+        height: 95%;
+        display: inline-block;
+        background-color: $color-white;
+        box-shadow: 0 2rem 4rem rgba($color-black, .2);
+        border-radius: 3px;
+       padding: 3rem;
+        overflow: hidden;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.25);
+        transition: all .5s .2s;
+        @include clearfix;
+    }
+
+    &__left {
+     float: left; 
+    
+     
+    }
+
+    &__right {
+     position: absolute;
+     top: 3rem;
+     right: 10rem;
+     padding-top : 9rem;
+
+
+    }
+
+    &__description{
+        padding: 2rem 3rem;
+        width: 60%;
+    }
+    &__icon{
+      font-size: 3rem;
+      shape-outside: circle;
+      color:$color-tertiary-light;
+      padding: 2rem 2rem;
+       float:left;
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+     
+    }
+    &__btn{
+        position: absolute;
+        bottom: -15rem;
+        right: 7.5rem;
+    }
+
+    &__heading{
+        position: absolute;
+        top: .5rem;
+        right: 2.5rem;
+    }
+
+    //Open states
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:target &__content {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &__close {
+        &:link,
+        &:visited {
+            color: $color-grey-light-3;
+            position: absolute;
+            top: .5rem;
+            right: 2.5rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .2s;
+            line-height: 1;
+        }
+
+        &:hover {
+            color: $color-tertiary-light;
+
+        }
+    }
+}
